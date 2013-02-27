@@ -504,12 +504,10 @@ function createTile(which, q) {
     var labeled = false;
     var tile = Object.create(tilePrototype);
     tile.which = which;
-    tile.width = 16;
+    //tile.width = 16;   Equal beat size
+    tile.width = Math.round(80 * q.duration);
     tile.height = 16;
     tile.normalColor = getQuantumColor(q);
-
-    //tile.width = Math.round(80 * q.duration);
-
     tile.rect = paper.rect(0, 0, tile.width, tile.height);
     tile.rect.attr("stroke", "#349");
     tile.rect.tile = tile;
