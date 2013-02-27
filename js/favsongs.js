@@ -1,8 +1,8 @@
 var favSongs = [
     {
-        "artist": "AWOLNATION", 
-        "id": "TRWHQOK13B357AB74A", 
-        "title": "Sail", 
+        "artist": "Gas House Gang", 
+        "id": "TRKQJMI13D1C8D8FDB", 
+        "title": "Hello, My Baby", 
         "visits": 62
     }, 
     {
