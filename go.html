@@ -508,8 +508,8 @@ function createTile(which, q) {
     var labeled = false;
     var tile = Object.create(tilePrototype);
     tile.which = which;
-    //tile.width = 16;   Equal beat size
-    tile.width = Math.round(80 * q.duration);
+    tile.width = 16;   Equal beat size
+    //tile.width = Math.round(80 * q.duration);
     tile.height = 16;
     tile.normalColor = getQuantumColor(q);
     tile.rect = paper.rect(0, 0, tile.width, tile.height);
@@ -948,7 +948,7 @@ function init() {
 
 var margin = 10;
 var top = 100;
-var tilesPerGroup = 0;
+var tilesPerGroup = 4;
 var tspace = 3;
 var tilesPerRow = 0;
 
