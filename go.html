@@ -8,7 +8,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 <script src="js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="jremix.js"></script> 
-<title> Girl Talk in a Box</title>
+<title> Barbershop Remix</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a id='show-search' class="brand">Girl Talk in a Box</a>
+      <a id='show-search' class="brand">Barbershop Remix</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li><a id='show-main'  href="index.html">Main</a></li>
@@ -59,7 +59,7 @@
 </div>
 <div id="help" class="hero-unit">
   <div class="container">
-    <h2> Girl Talk in a box</h2>
+    <h2> Barbershop Remix</h2>
         <p>
             Puts you in control of your favorite song.
         <p>
@@ -227,7 +227,7 @@ function showTrackTitle(t) {
 
 function trackReady(t) {
     t.fixedTitle = getTitle(t.title, t.artist, t.info.url);
-    document.title = 'Girl Talk in a Box for ' + t.fixedTitle;
+    document.title = 'Barbershop Remix for ' + t.fixedTitle;
     // $("#song-title").text(t.fixedTitle);
 }
 
@@ -1047,7 +1047,7 @@ function tweetSetup(t) {
 
     $("#tweet-span").prepend(tweet);
     if (t) {
-        tweet.attr('data-text',  "Listen to my version of " + t.fixedTitle + " #GirlTalkInABox");
+        tweet.attr('data-text',  "Listen to my version of " + t.fixedTitle + " #BarbershopRemix");
         tweet.attr('data-url', document.URL);
     } 
     // twitter can be troublesome. If it is not there, don't bother loading it
