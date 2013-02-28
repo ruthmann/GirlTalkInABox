@@ -164,6 +164,11 @@ function goTatums() {
     createTilePanel(bMode);
 }
 
+function goSegments() {
+    bMode = 'segments';
+    createTilePanel(bMode);
+}
+
 
 function stop() {
     player.stop();
@@ -796,6 +801,11 @@ function keydown(evt) {
 
     if (evt.which === 71  ) {  // g
         goBars();
+        evt.preventDefault();
+    }
+    
+    if (evt.which === 78  ) {  // n
+        goSegments();
         evt.preventDefault();
     }
 
