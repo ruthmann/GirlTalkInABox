@@ -970,7 +970,7 @@ function init() {
 
 var margin = 10;
 var top = 100;
-var tilesPerGroup = 4; // 4 is default
+var tilesPerGroup = 8; // 4 is default
 var tspace = 3; // 3 is default
 var tilesPerRow = 0;
 
@@ -995,8 +995,8 @@ function refreshLayout(animated) {
 
             for (var i = 0; i < tiles.length; i++) {
                 var tile = tiles[i];
-                if (i % 4 === 0) {
-                    xstart += tile.width + tspace / 2;
+               // if (i % 4 === 0) {       // uncomment to create space between parts
+                //    xstart += tile.width + tspace / 2;
                 }
 
                 if (i % tilesPerRow === 0) {
