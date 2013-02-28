@@ -171,6 +171,11 @@ function goSegments() {
     createTilePanel(bMode);
 }
 
+function goSections() {
+    bMode = 'sections';
+    createTilePanel(bMode);
+}
+
 
 function stop() {
     player.stop();
@@ -808,6 +813,11 @@ function keydown(evt) {
     
     if (evt.which === 78  ) {  // n
         goSegments();
+        evt.preventDefault();
+    }
+    
+     if (evt.which === 77  ) {  // m
+        goSections();
         evt.preventDefault();
     }
 
