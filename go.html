@@ -66,10 +66,12 @@
 </div>
 <div id="help" class="hero-unit">
   <div class="container">
-    <h2> Barbershop Remix</h2>
+    <h2> UMass Lowell Music Remix</h2>
         <p>
             Puts you in control of your favorite song.
         <p>
+        Read more about our research at the intersection of music, education <br>and computing at <a href="http://experiencingaudio.org">Experiencing Audio</a> and <a href="http://performamatics.org">Performamatics</a>.
+        </p>
         Controls:
         <ul>
             <li> mouse click - start playing from the clicked beat
@@ -249,7 +251,7 @@ function showTrackTitle(t) {
 
 function trackReady(t) {
     t.fixedTitle = getTitle(t.title, t.artist, t.info.url);
-    document.title = 'Barbershop Remix for ' + t.fixedTitle;
+    document.title = 'UMass Lowell Remix for ' + t.fixedTitle;
     // $("#song-title").text(t.fixedTitle);
 }
 
@@ -510,8 +512,12 @@ function getQuantumSegment(q) {
 }
 
 
+//function isSegment(q) {
+//    return 'pitches' in q;		// color of tiles mapped to pitch
+//}
+
 function isSegment(q) {
-    return 'timbre' in q;
+    return 'timbre' in q;			// color of tiles mapped to timbre
 }
 
 function getSegmentColor(seg) {
@@ -526,8 +532,8 @@ function createTile(which, q) {
     var labeled = false;
     var tile = Object.create(tilePrototype);
     tile.which = which;
-    //tile.width = 16;   //Equal beat size
-    tile.width = Math.round(80 * q.duration);
+    tile.width = 16;   //Equal beat size
+    //tile.width = Math.round(80 * q.duration);
     tile.height = 16;
     tile.normalColor = getQuantumColor(q);
     tile.rect = paper.rect(0, 0, tile.width, tile.height);
