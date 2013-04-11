@@ -70,8 +70,12 @@
         <p>
             Puts you in control of your favorite song.
         <p>
-        Read more about our research at the intersection of music, education <br>and computing at <a href="http://experiencingaudio.org">Experiencing Audio</a> and <a href="http://performamatics.org">Performamatics</a>.
+        <hr>
+        <img src="images.jpeg" align="left" Hspace="30">
+        Read more about our research at the intersection of music, education and computing at <a href="http://experiencingaudio.org">Experiencing Audio</a> and <a href="http://performamatics.org">Performamatics</a>.
+        <br>Learn more about Music Education @ UMass Lowell on our <a href="http://www.facebook.com/umlmusiced">Facebook page</a> & follow us on <a href="http://www.twitter.com/umlmusiced">Twitter</a>.
         </p>
+        <hr>
         Controls:
         <ul>
             <li> mouse click - start playing from the clicked beat
@@ -82,13 +86,13 @@
             <li> b - toggle between beats and tatums
             <li> n - set to segments
             <li> g - set to bars
+            <li> m - set to sections
             <li> shift+key - bookmark a beat
             <li> [/] - set loop points
         </ul>
         See 'help' for more info
         <p>
-        Read more about our research at the intersection of music, education and computing at <a href="http://experiencingaudio.org">Experiencing Audio</a> and <a href="http://performamatics.org">Performamatics</a>.
-        </p>
+
   </div>
 </div>
 
@@ -739,7 +743,7 @@ function keydown(evt) {
         }
         setSpeedFactor(factor)
         evt.preventDefault();
-    }
+    } 
 
     if (evt.which == 191  ) {  // / reset
         setSpeedFactor(1)
@@ -1083,7 +1087,7 @@ function tweetSetup(t) {
 
     $("#tweet-span").prepend(tweet);
     if (t) {
-        tweet.attr('data-text',  "Listen to my version of " + t.fixedTitle + " #BarbershopRemix");
+        tweet.attr('data-text',  "Listen to my version of " + t.fixedTitle + " #MusicRemix @umlmusiced");
         tweet.attr('data-url', document.URL);
     } 
     // twitter can be troublesome. If it is not there, don't bother loading it
