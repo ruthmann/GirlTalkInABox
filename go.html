@@ -516,13 +516,13 @@ function getQuantumSegment(q) {
 }
 
 
-function isSegment(q) {
-    return 'pitches' in q;		// color of tiles mapped to pitch
-}
-
 //function isSegment(q) {
-//    return 'timbre' in q;			// color of tiles mapped to timbre
+//    return 'pitches' in q;		// color of tiles mapped to pitch
 //}
+
+function isSegment(q) {
+    return 'timbre' in q;			// color of tiles mapped to timbre
+}
 
 function getSegmentColor(seg) {
     return getColor(seg);
@@ -988,7 +988,7 @@ var margin = 10;
 var top = 100;
 var tilesPerGroup = 6; // 4 is default
 var tspace = 3; // 3 is default
-var tilesPerRow = 9;
+var tilesPerRow = 8;
 
 function refreshLayout(animated) {
     var nt = tiles.length;
@@ -1011,8 +1011,13 @@ function refreshLayout(animated) {
 
             for (var i = 0; i < tiles.length; i++) {
                 var tile = tiles[i];
-               if (i % 6 === 0) {       // uncomment to create space between parts
-            	    xstart += tile.width + tspace / 2;
+               //if (i % 4 === 0) {       // uncomment to create space between parts
+            	//    xstart += tile.width + tspace / 2;
+            	//}
+            	
+            	var meter = parseInt(track.analysis.track.time_signature);
+            	if (i % meter == 0) {
+            		xstart += tile.width + tspace / 2;
             	}
 
                 if (i % tilesPerRow === 0) {
