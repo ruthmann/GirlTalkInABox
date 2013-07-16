@@ -133,7 +133,7 @@ var tiles = [];
 var selectedTile;
 var mouseOverTile;
 var tatumMode = false;
-var bMode = 'segments';
+var bMode = 'beats';  // initialize to beat display
 
 var shifted = false;
 var controlled = false;
@@ -494,7 +494,7 @@ function getQuantumColor(q) {
         if (q != null) {
             return getSegmentColor(q);
         } else {
-            return "#7Fa";
+            return "#000"; // default is #7Fa
         }
     }
 }
@@ -516,28 +516,28 @@ function getQuantumSegment(q) {
 }
 
 
-//function isSegment(q) {
-//    return 'pitches' in q;		// color of tiles mapped to pitch
-//}
-
 function isSegment(q) {
-    return 'timbre' in q;			// color of tiles mapped to timbre
+    return 'pitches' in q;		// color of tiles mapped to pitch
 }
+
+//function isSegment(q) {
+//    return 'timbre' in q;			// color of tiles mapped to timbre
+//}
 
 function getSegmentColor(seg) {
     return getColor(seg);
 }
 
 function tw() {
-    return 19;
+    return 19;  //default was 19
 }
 
 function createTile(which, q) {
     var labeled = false;
     var tile = Object.create(tilePrototype);
     tile.which = which;
-    //tile.width = 16;   //Equal beat size
-    tile.width = Math.round(40 * q.duration);
+    tile.width = 16;   //Equal beat size
+    //tile.width = Math.round(40 * q.duration);   // tile width as a function of duration
     tile.height = 16;
     tile.normalColor = getQuantumColor(q);
     tile.rect = paper.rect(0, 0, tile.width, tile.height);
@@ -822,30 +822,30 @@ function keydown(evt) {
         evt.preventDefault();
     }
 
-    if (evt.which === 71  ) {  // g
+    if (evt.which === 71  ) {  // g  displays by Bars
         goBars();
         evt.preventDefault();
     }
     
-    if (evt.which === 78  ) {  // n
+    if (evt.which === 78  ) {  // n  displays by Segments
         goSegments();
         evt.preventDefault();
     }
     
-     if (evt.which === 77  ) {  // m
+     if (evt.which === 77  ) {  // m  displays by Sections
         goSections();
         evt.preventDefault();
     }
 
-    if (evt.which == 17) {
+    if (evt.which == 17) {			// tests for control key for copying tiles.
         controlled = true;
     }
 
-    if (evt.which == 16) {
+    if (evt.which == 16) {			// tests for shift key - keybinding
         shifted = true;
     }
 
-    if (evt.which == 32) {
+    if (evt.which == 32) {			// tests for spacebar, start & stop playback
         evt.preventDefault();
         if (driver.isRunning()) {
             driver.stop();
@@ -854,7 +854,7 @@ function keydown(evt) {
         }
     }
 
-    if (shifted && isDigit(evt.keyCode)) {
+    if (shifted && isDigit(evt.keyCode)) {				// maps number keys only to tiles
         mapper[evt.keyCode] = driver.getCurTile();
     } else {
         if (evt.keyCode in mapper) {
@@ -986,9 +986,9 @@ function init() {
 
 var margin = 10;
 var top = 100;
-var tilesPerGroup = 6; // 4 is default
-var tspace = 3; // 3 is default
-var tilesPerRow = 8;
+var tilesPerGroup = 4; // 4 is default
+var tspace = 3; // Space between tiles - 3 is default
+var tilesPerRow = 0;  // 0 is default
 
 function refreshLayout(animated) {
     var nt = tiles.length;
@@ -1015,7 +1015,7 @@ function refreshLayout(animated) {
             	//    xstart += tile.width + tspace / 2;
             	//}
             	
-            	var meter = parseInt(track.analysis.track.time_signature);
+            	var meter = parseInt(track.analysis.track.time_signature); // base space on meter of song.
             	if (i % meter == 0) {
             		xstart += tile.width + tspace / 2;
             	}
